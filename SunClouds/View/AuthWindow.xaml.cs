@@ -10,21 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SunClouds
+namespace SunClouds.View
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
-            InitializeComponent();
-            //DataContext = new MainWindow(); // Не забываем для новых ViewModel задавать контекст
-        }
+	/// <summary>
+	/// Interaction logic for AuthWindow.xaml
+	/// </summary>
+	public partial class AuthWindow : Window
+	{
+		public AuthWindow()
+		{
+			InitializeComponent();
+		}
 		private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
 		{
 			if (e.ChangedButton == MouseButton.Left)
@@ -75,14 +73,10 @@ namespace SunClouds
 			}
 		}
 
-		private void WeatherPageButton_Click(object sender, RoutedEventArgs e)
+		private void Next_Click(object sender, RoutedEventArgs e)
 		{
-			Frame.Source = new Uri("WeatherData.xaml", UriKind.Relative);
-		}
-
-		private void SettingsPageButton_Click(object sender, RoutedEventArgs e)
-		{
-			Frame.Source = new Uri("Settings.xaml", UriKind.Relative);
+			(new MainWindow()).Show();
+			this.Close();
 		}
 	}
 }

@@ -6,13 +6,189 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SunClouds"
         mc:Ignorable="d"
-        
+        Height="438"
+		Width="874"
         xmlns:viewmodel="clr-namespace:SunClouds.ViewModel" 
         d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
-        
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        FontFamily="Jura">
+	<WindowChrome.WindowChrome>
+		<WindowChrome CaptionHeight="30" CornerRadius="0"/>
+	</WindowChrome.WindowChrome>
+	<Window.Resources>
+		<ResourceDictionary>
+			<Style x:Key="CaptionButtonStyle" TargetType="Button">
+				<Setter Property="Template">
+					<Setter.Value>
+						<ControlTemplate TargetType="Button">
+							<Grid x:Name="LayoutRoot" Background="Transparent" Width="30" Height="30">
+								<TextBlock x:Name="Color" Text="{TemplateBinding Content}" FontFamily="Segoe MDL2 Assets" FontWeight="ExtraBold" FontSize="8" 
+                                  Foreground="#3D95B9" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   RenderOptions.ClearTypeHint="Auto" TextOptions.TextRenderingMode="Aliased"  TextOptions.TextFormattingMode="Display"/>
+							</Grid>
+							<ControlTemplate.Triggers>
+								<Trigger Property="IsMouseOver" Value="True">
+									<Setter TargetName="LayoutRoot" Property="Background" Value="#3D95B9"/>
+									<Setter Property="Foreground" Value="Black"/>
+								</Trigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+			<Style x:Key="MinimizeButtonStyle" TargetType="Button" BasedOn="{StaticResource CaptionButtonStyle}">
+				<Setter Property="Content" Value="&#xE949;"/>
+			</Style>
+			<Style x:Key="MaximizeButtonStyle" TargetType="Button" BasedOn="{StaticResource CaptionButtonStyle}">
+				<Setter Property="Content" Value="&#xE739;"/>
+			</Style>
+			<Style x:Key="RestoreButtonStyle" TargetType="Button" BasedOn="{StaticResource CaptionButtonStyle}">
+				<Setter Property="Content" Value="&#xE923;"/>
+			</Style>
+			<Style x:Key="CloseButtonStyle" TargetType="Button" BasedOn="{StaticResource CaptionButtonStyle}">
+				<Setter Property="Content" Value="&#xE106;"/>
+			</Style>
+		</ResourceDictionary>
+	</Window.Resources>
 
-    </Grid>
+	<Window.CommandBindings>
+		<CommandBinding Command="{x:Static SystemCommands.CloseWindowCommand}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed_Close" />
+		<CommandBinding Command="{x:Static SystemCommands.MaximizeWindowCommand}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed_Maximize" />
+		<CommandBinding Command="{x:Static SystemCommands.MinimizeWindowCommand}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed_Minimize" />
+		<CommandBinding Command="{x:Static SystemCommands.RestoreWindowCommand}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed_Restore" />
+	</Window.CommandBindings>
+
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="274"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid Grid.Column="0">
+			<Grid Margin="35,80,0,0" VerticalAlignment="Top">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="110"/>
+					<ColumnDefinition Width="110"/>
+				</Grid.ColumnDefinitions>
+				<TextBlock Grid.Column="1" Height="15" Margin="5,-30,0,0"  Text="Ясно,21" FontWeight="Bold" Foreground="#3D95B9" TextAlignment="Right"/>
+				<Image Source="/Resources/Sunny.png" Grid.Column="0" Height="80">
+					<Image.Effect>
+						<DropShadowEffect Direction="-106" Opacity="1" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
+					</Image.Effect>
+				</Image>
+				<TextBlock Grid.Column="2" Height="30" Margin="5,15,0,0"  Text="Ощущается как что то там " TextWrapping="Wrap" FontWeight="Bold" Foreground="#3D95B9" TextAlignment="Right"/>
+			</Grid>
+			<WrapPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,190,0,0">
+				<Grid Margin="0,0,0,50">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="150"/>
+					</Grid.ColumnDefinitions>
+					<TextBlock Grid.Column="0" Margin="15,5,0,0"  Text="16:00" FontWeight="Bold" Height="45" Padding="0,10,0,0" Foreground="#3D95B9"/>
+					<TextBlock Grid.Column="2" Height="15" Margin="5,-30,0,0"  Text="Ясно,21" FontWeight="Bold" Foreground="#3D95B9"/>
+					<Image Source="/Resources/Sunny.png" Grid.Column="1" Height="45">
+						<Image.Effect>
+							<DropShadowEffect Direction="-106" Opacity="1" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
+						</Image.Effect>
+					</Image>
+					<TextBlock Grid.Column="2" Height="30" Margin="5,15,0,0"  Text="Ощущается как что то там " TextWrapping="Wrap" FontWeight="Bold" Foreground="#3D95B9"/>
+				</Grid>
+				<Grid Margin="0,0,0,50">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="150"/>
+					</Grid.ColumnDefinitions>
+					<TextBlock Grid.Column="0" Margin="15,5,0,0"  Text="16:00" FontWeight="Bold" Height="45" Padding="0,10,0,0" Foreground="#3D95B9"/>
+					<TextBlock Grid.Column="2" Height="15" Margin="5,-30,0,0"  Text="Ясно,21" FontWeight="Bold" Foreground="#3D95B9"/>
+					<Image Source="/Resources/Sunny.png" Grid.Column="1" Height="45">
+						<Image.Effect>
+							<DropShadowEffect Direction="-106" Opacity="1" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
+						</Image.Effect>
+					</Image>
+					<TextBlock Grid.Column="2" Height="30" Margin="5,15,0,0"  Text="Ощущается как что то там " TextWrapping="Wrap" FontWeight="Bold" Foreground="#3D95B9"/>
+				</Grid>
+				<Grid Margin="0,0,0,50">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="150"/>
+					</Grid.ColumnDefinitions>
+					<TextBlock Grid.Column="0" Margin="15,5,0,0"  Text="16:00" FontWeight="Bold" Height="45" Padding="0,10,0,0" Foreground="#3D95B9"/>
+					<TextBlock Grid.Column="2" Height="15" Margin="5,-30,0,0"  Text="Ясно,21" FontWeight="Bold" Foreground="#3D95B9"/>
+					<Image Source="/Resources/Sunny.png" Grid.Column="1" Height="45">
+						<Image.Effect>
+							<DropShadowEffect Direction="-106" Opacity="1" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
+						</Image.Effect>
+					</Image>
+					<TextBlock Grid.Column="2" Height="30" Margin="5,15,0,0"  Text="Ощущается как что то там " TextWrapping="Wrap" FontWeight="Bold" Foreground="#3D95B9"/>
+				</Grid>
+				<Grid Margin="0,0,0,50">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="60"/>
+						<ColumnDefinition Width="150"/>
+					</Grid.ColumnDefinitions>
+					<TextBlock Grid.Column="0" Margin="15,5,0,0"  Text="16:00" FontWeight="Bold" Height="45" Padding="0,10,0,0" Foreground="#3D95B9"/>
+					<TextBlock Grid.Column="2" Height="15" Margin="5,-30,0,0"  Text="Ясно,21" FontWeight="Bold" Foreground="#3D95B9"/>
+					<Image Source="/Resources/Sunny.png" Grid.Column="1" Height="45">
+						<Image.Effect>
+							<DropShadowEffect Direction="-106" Opacity="1" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
+						</Image.Effect>
+					</Image>
+					<TextBlock Grid.Column="2" Height="30" Margin="5,15,0,0"  Text="Ощущается как что то там " TextWrapping="Wrap" FontWeight="Bold" Foreground="#3D95B9"/>
+				</Grid>
+			</WrapPanel>
+			<Image Margin="88,120,5,15" Source="/Resources/Line.png" Panel.ZIndex="-1" Width="5" HorizontalAlignment="Left" Opacity="1" Stretch="Fill">
+				<Image.Effect>
+					<DropShadowEffect Direction="-106" Opacity="1" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
+				</Image.Effect>
+			</Image>
+
+		</Grid>
+		<Image Source="/Resources/Day.png" Grid.ColumnSpan="2" Stretch="UniformToFill" Panel.ZIndex="-2"/>
+		<Border Grid.Column="0" Background="#F8C5B4" Opacity="0.5"/>
+		<Grid Grid.Column="0">
+			<Label Content="Северобайкальск" Height="40" VerticalAlignment="Top" FontWeight="Bold" Margin="0,19,0,0" FontSize="21" HorizontalAlignment="Center" Foreground="#3D95B9"/>
+			<Rectangle Height="2" Width="240" VerticalAlignment="Top" Margin="0,55,0,0" Stroke="#3D95B9"/>
+		</Grid>
+		<Grid x:Name="DragGrid" MouseDown="Grid_MouseDown" Grid.ColumnSpan="2" Height="30" VerticalAlignment="Top">
+			<Grid Name="Headbar" Grid.Row="0" Height="30" Background="Transparent" Grid.ColumnSpan="2">
+				<StackPanel x:Name="panel" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+					<Button Style="{StaticResource MinimizeButtonStyle}" Background="Transparent" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Minimize"
+                            Command="{x:Static SystemCommands.MinimizeWindowCommand}"/>
+					<Button x:Name="RestoreButton" Visibility="Collapsed" Background="Transparent" Style="{StaticResource RestoreButtonStyle}" 
+                            Command="{x:Static SystemCommands.RestoreWindowCommand}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Restore"/>
+					<Button x:Name="MaximizeButton" Visibility="Visible" Background="Transparent" Style="{StaticResource MaximizeButtonStyle}" 
+                            Command="{x:Static SystemCommands.MaximizeWindowCommand}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Maximize" />
+					<Button Style="{StaticResource CloseButtonStyle}" Background="Transparent" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Close"
+                            Command="{x:Static SystemCommands.CloseWindowCommand}"/>
+				</StackPanel>
+			</Grid>
+		</Grid>
+
+		<Grid Grid.Column="1">
+			<Button Name="WeatherPageButton" Click="WeatherPageButton_Click" BorderThickness="0" Height="24" VerticalAlignment="Top" Background="Transparent" Content="Погода" FontSize="21" FontWeight="Bold" Margin="5,25,25,0" HorizontalAlignment="Left" Foreground="White"/>
+			<Button Name="SettingsPageButton" Click="SettingsPageButton_Click" BorderThickness="0" Height="24" VerticalAlignment="Top" Background="Transparent" Content="Настройки" FontSize="21" FontWeight="Bold" Margin="0,25,25,0" HorizontalAlignment="Right" Foreground="White"/>
+			<Rectangle Height="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,55,25,0" Stroke="White"/>
+		</Grid>
+
+
+
+		<Frame x:Name="Frame" Source="WeatherData.xaml" NavigationUIVisibility="Hidden" Grid.Column="1" Margin="5,50,5,5">
+
+		</Frame>
+
+		<!--Settings-->
+
+
+
+
+		<!--Weather-->
+		<Grid Grid.Column="1" Margin="5,50,5,5">
+
+		</Grid>
+	</Grid>
 </Window>
