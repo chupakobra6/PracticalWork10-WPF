@@ -1,5 +1,10 @@
-﻿using System.Windows;
-
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows;
 
 namespace SunClouds
 {
@@ -8,16 +13,5 @@ namespace SunClouds
     /// </summary>
     public partial class App : Application
     {
-        public App()
-        {
-            InitializeComponent();
-            //Должна была быть передача данных в WeatherProvider
-            /*            WeatherService.UseOpenMeteo();
-                        WeatherService.MeasureConfiguration.Windspeed = SettingsService.Configuration.Wind;
-                        WeatherService.MeasureConfiguration.Pressure = SettingsService.Configuration.Pressure;
-                        WeatherService.MeasureConfiguration.PrecipitationSum = SettingsService.Configuration.Lenght;
-                        WeatherService.MeasureConfiguration.Temperature = SettingsService.Configuration.Temperature;
-                        ServiceManager.InternetConnectionService.HostName = WeatherService.ProviderDomain;*/
-        }
     }
 }
