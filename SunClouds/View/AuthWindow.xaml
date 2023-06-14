@@ -5,21 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SunClouds.View"
         mc:Ignorable="d"
+			
 		WindowStyle="None"
         FontFamily="Jura"
-        Title="Window1" Height="450" Width="800">
+        Title="Стартовое окно"
+        MinHeight="158" MinWidth="206"
+        Height="400" Width="660"
+        >
+    
 	<WindowChrome.WindowChrome>
 		<WindowChrome CaptionHeight="30"/>
 	</WindowChrome.WindowChrome>
+    
 	<Window.Resources>
 		<ResourceDictionary>
 			<Style x:Key="CaptionButtonStyle" TargetType="Button">
 				<Setter Property="Template">
 					<Setter.Value>
 						<ControlTemplate TargetType="Button">
+                            
 							<Grid x:Name="LayoutRoot" Background="Transparent" Width="30" Height="30">
 							</Grid>
-							<ControlTemplate.Triggers>
+							
+                            <ControlTemplate.Triggers>
 								<Trigger Property="IsMouseOver" Value="False">
 									<Setter TargetName="LayoutRoot" Property="Background" Value="Transparent"/>
 									<Setter Property="Foreground" Value="Black"/>
@@ -33,16 +41,20 @@
 					</Setter.Value>
 				</Setter>
 			</Style>
+            
 			<Style x:Key="MinimizeButtonStyle" TargetType="Button" BasedOn="{StaticResource CaptionButtonStyle}">
 				<Setter Property="Content" Value="&#xE949;"/>
 			</Style>
-			<Style x:Key="MaximizeButtonStyle" TargetType="Button" BasedOn="{StaticResource CaptionButtonStyle}">
+			
+            <Style x:Key="MaximizeButtonStyle" TargetType="Button" BasedOn="{StaticResource CaptionButtonStyle}">
 				<Setter Property="Content" Value="&#xE739;"/>
 			</Style>
-			<Style x:Key="RestoreButtonStyle" TargetType="Button" BasedOn="{StaticResource CaptionButtonStyle}">
+			
+            <Style x:Key="RestoreButtonStyle" TargetType="Button" BasedOn="{StaticResource CaptionButtonStyle}">
 				<Setter Property="Content" Value="&#xE923;"/>
 			</Style>
-			<Style x:Key="CloseButtonStyle" TargetType="Button" BasedOn="{StaticResource CaptionButtonStyle}">
+			
+            <Style x:Key="CloseButtonStyle" TargetType="Button" BasedOn="{StaticResource CaptionButtonStyle}">
 				<Setter Property="Content" Value="&#xE106;"/>
 			</Style>
 		</ResourceDictionary>
@@ -59,24 +71,33 @@
 		<Grid x:Name="DragGrid" MouseDown="Grid_MouseDown" Height="30" VerticalAlignment="Top">
 			<Grid Name="Headbar" Height="30" Background="Transparent">
 				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                    
 					<Button Style="{StaticResource MinimizeButtonStyle}" Background="Transparent" WindowChrome.IsHitTestVisibleInChrome="True"  ToolTip="Minimize"
                             Command="{x:Static SystemCommands.MinimizeWindowCommand}"/>
-					<Button x:Name="RestoreButton" Visibility="Collapsed" Background="Transparent" Style="{StaticResource RestoreButtonStyle}" 
+					
+                    <Button x:Name="RestoreButton" Visibility="Collapsed" Background="Transparent" Style="{StaticResource RestoreButtonStyle}" 
                             Command="{x:Static SystemCommands.RestoreWindowCommand}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Restore"/>
-					<Button x:Name="MaximizeButton" Visibility="Visible" Background="Transparent" Style="{StaticResource MaximizeButtonStyle}" 
+					
+                    <Button x:Name="MaximizeButton" Visibility="Visible" Background="Transparent" Style="{StaticResource MaximizeButtonStyle}" 
                             Command="{x:Static SystemCommands.MaximizeWindowCommand}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Maximize" />
-					<Button Style="{StaticResource CloseButtonStyle}" Background="Transparent" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Close"
+					
+                    <Button Style="{StaticResource CloseButtonStyle}" Background="Transparent" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Close"
                             Command="{x:Static SystemCommands.CloseWindowCommand}"/>
 				</StackPanel>
 			</Grid>
 		</Grid>
+        
 		<Image Source="/Resources/Day.png" Grid.ColumnSpan="2" Panel.ZIndex="-3" Stretch="UniformToFill"/>
-		<Border Background="#F8C5B4" Height="140" Width="206">
+		
+        <Border Background="#F8C5B4" Height="140" Width="206">
 			<Grid>
 				<Label Content="SunClouds" Foreground="White" FontSize="28" HorizontalAlignment="Center" Margin="0,8,0,0"/>
-				<Rectangle Fill="White" Height="2" Margin="10,-45,10,0"/>
-				<TextBlock Height="30" Margin="15,15,15,5" Background="#503D95B9" Text="Ваш город" Foreground="White" Padding="0,1,0,0" IsEnabled="True" FontSize="20" TextAlignment="Center" Panel.ZIndex="2"/>
-				<Button Name="Next" Height="30" Margin="15,90,15,5" Background="#903D95B9" Content="Узнать погоду" Foreground="White" Padding="0,1,0,0" FontSize="20" Click="Next_Click" BorderThickness="0"/>
+				
+                <Rectangle Fill="White" Height="1" Margin="10,-45,10,0"/>
+				
+                <TextBlock Height="30" Margin="15,15,15,5" Background="#503D95B9" Text="Ваш город" Foreground="White" Padding="0,1,0,0" IsEnabled="True" FontSize="20" TextAlignment="Center" Panel.ZIndex="2"/>
+				
+                <Button Name="Next" Height="30" Margin="15,90,15,5" Background="#903D95B9" Content="Узнать погоду" Foreground="White" Padding="0,1,0,0" FontSize="20" Click="Next_Click" BorderThickness="0"/>
 			</Grid>
 		</Border>
 	</Grid>
