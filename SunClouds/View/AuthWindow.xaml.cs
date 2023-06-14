@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace SunClouds
+namespace SunClouds.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Interaction logic for AuthWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
-            InitializeComponent();
-            //DataContext = new MainWindow(); // Не забываем для новых ViewModel задавать контекст
-        }
+    public partial class AuthWindow : Window
+	{
+		public AuthWindow()
+		{
+			InitializeComponent();
+		}
 
 		private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
 		{
@@ -27,8 +25,8 @@ namespace SunClouds
 		private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
 		{
 			e.CanExecute = true;
-		}
 		
+		}
 		// Minimize
 		private void CommandBinding_Executed_Minimize(object sender, ExecutedRoutedEventArgs e)
 		{
@@ -57,7 +55,7 @@ namespace SunClouds
 			SystemCommands.CloseWindow(this);
 		}
 		
-		// Отвечает за смену кнопки во весь экран/Вид в окне
+		// Отвечает за смену кнопки во весь экран / Вид в окне
 		private void MainWindowStateChangeRaised(object sender, EventArgs e)
 		{
 			if (!(WindowState == WindowState.Maximized))
@@ -72,14 +70,10 @@ namespace SunClouds
 			}
 		}
 
-		private void WeatherPageButton_Click(object sender, RoutedEventArgs e)
+		private void Next_Click(object sender, RoutedEventArgs e)
 		{
-			Frame.Source = new Uri("WeatherData.xaml", UriKind.Relative);
-		}
-
-		private void SettingsPageButton_Click(object sender, RoutedEventArgs e)
-		{
-			Frame.Source = new Uri("Settings.xaml", UriKind.Relative);
+			new MainWindow().Show();
+			Close();
 		}
 	}
 }

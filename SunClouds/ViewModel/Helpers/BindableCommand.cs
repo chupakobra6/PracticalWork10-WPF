@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace PracticalWork8.ViewModel.Helpers
+namespace PracticalWork10.ViewModel.Helpers
 {
     internal class BindableCommand : ICommand
     {
