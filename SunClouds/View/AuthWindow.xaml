@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SunClouds.View"
+        xmlns:viewmodel="clr-namespace:SunClouds.ViewModel" 
+        d:DataContext="{d:DesignInstance Type=viewmodel:AuthViewModel}"
         mc:Ignorable="d"
 		WindowStyle="None"
         FontFamily="Jura"
@@ -75,8 +77,8 @@
 			<Grid>
 				<Label Content="SunClouds" Foreground="White" FontSize="28" HorizontalAlignment="Center" Margin="0,8,0,0"/>
 				<Rectangle Fill="White" Height="2" Margin="10,-45,10,0"/>
-				<TextBlock Height="30" Margin="15,15,15,5" Background="#503D95B9" Text="Ваш город" Foreground="White" Padding="0,1,0,0" IsEnabled="True" FontSize="20" TextAlignment="Center" Panel.ZIndex="2"/>
-				<Button Name="Next" Height="30" Margin="15,90,15,5" Background="#903D95B9" Content="Узнать погоду" Foreground="White" Padding="0,1,0,0" FontSize="20" Click="Next_Click" BorderThickness="0"/>
+				<TextBox Height="30" Margin="15,15,15,5" Background="#503D95B9" Text="{Binding City, Mode=TwoWay}" Foreground="White" Padding="0,1,0,0" IsEnabled="True" FontSize="20" TextAlignment="Center" Panel.ZIndex="2"/>
+                <Button Name="Next" Command = "{Binding Autorization}" Height="30" Margin="15,90,15,5" Background="#903D95B9" Content="Узнать погоду" Foreground="White" Padding="0,1,0,0" FontSize="20" Click="Next_Click" BorderThickness="0"/>
 			</Grid>
 		</Border>
 	</Grid>

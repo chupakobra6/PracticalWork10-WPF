@@ -20,35 +20,35 @@
 			<TextBox Background="Transparent" Width="80" HorizontalAlignment="Left" Text="21°" FontSize="45" HorizontalContentAlignment="Center" VerticalAlignment="Center" Foreground="#3D95B9" BorderThickness="0"/>
 			<Rectangle Height="60" Width="1" HorizontalAlignment="Left" Margin="80,15,0,10" Stroke="White"/>
 			<StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top" Margin="90,10,0,0">
-				<Grid>
-					<Label Content="Ощущение:" FontSize="14" Foreground="White"/>
-					<Label Content="21°" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
-				</Grid>
-				<Grid>
-					<Label Content="Мин:" FontSize="14" Foreground="White"/>
-					<Label Content="21°" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
-				</Grid>
-				<Grid>
-					<Label Content="Макс:" FontSize="14" Foreground="White"/>
-					<Label Content="21°" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
-				</Grid>
-				<Grid>
-					<Label Content="Давление:" FontSize="14" Foreground="White"/>
-					<Label Content="21°" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
-				</Grid>
-				<Grid>
-					<Label Content="Влажность:" FontSize="14" Foreground="White"/>
-					<Label Content="21°" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
-				</Grid>
-				<Grid>
-					<Label Content="Ветер м/с" FontSize="14" Foreground="White"/>
-					<Label Content="21°" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
-				</Grid>
-				<Grid>
-					<Label Content="Ветер:" FontSize="14" Foreground="White"/>
-					<Label Content="21°" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
-				</Grid>
-			</StackPanel>
+                <Grid>
+                    <Label Content="Ощущение:" FontSize="14" Foreground="White"/>
+                    <Label Content="{Binding FeelsLike}" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
+                </Grid>
+                <Grid>
+                    <Label Content="Мин:" FontSize="14" Foreground="White"/>
+                    <Label Content="{Binding MinTemp}" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
+                </Grid>
+                <Grid>
+                    <Label Content="Макс:" FontSize="14" Foreground="White"/>
+                    <Label Content="{Binding MaxTemp}" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
+                </Grid>
+                <Grid>
+                    <Label Content="Давление:" FontSize="14" Foreground="White"/>
+                    <Label Content="{Binding Pressure}" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
+                </Grid>
+                <Grid>
+                    <Label Content="Влажность:" FontSize="14" Foreground="White"/>
+                    <Label Content="{Binding Humidity}" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
+                </Grid>
+                <Grid>
+                    <Label Content="Ветер м/с" FontSize="14" Foreground="White"/>
+                    <Label Content="{Binding WindSpeed}" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
+                </Grid>
+                <Grid>
+                    <Label Content="Ветер:" FontSize="14" Foreground="White"/>
+                    <Label Content="{Binding WindDirection}" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
+                </Grid>
+            </StackPanel>
 		</Grid>
 		<Border SnapsToDevicePixels="True" Grid.Column="0" Background="#F8C5B4" Opacity="0.5" Margin="10,115,20,0" Height="130" VerticalAlignment="Top">
 			<ListBox VerticalAlignment="Stretch" Background="Transparent">

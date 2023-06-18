@@ -22,5 +22,29 @@ namespace SunClouds.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CurrentCity {
+            get {
+                return ((string)(this["CurrentCity"]));
+            }
+            set {
+                this["CurrentCity"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool degreesCelsius {
+            get {
+                return ((bool)(this["degreesCelsius"]));
+            }
+            set {
+                this["degreesCelsius"] = value;
+            }
+        }
     }
 }

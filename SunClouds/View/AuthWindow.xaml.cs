@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SunClouds.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace SunClouds.View
 		public AuthWindow()
 		{
 			InitializeComponent();
+			DataContext = new AuthViewModel();
 		}
 		private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
 		{
