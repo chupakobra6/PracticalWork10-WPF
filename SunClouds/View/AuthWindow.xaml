@@ -9,7 +9,7 @@
         mc:Ignorable="d"
 			
 		WindowStyle="None"
-        FontFamily="Jura"
+        FontFamily="pack://application:,,,/Resources/#Jura"
         Title="Стартовое окно"
         MinHeight="158" MinWidth="206"
         Height="400" Width="660"

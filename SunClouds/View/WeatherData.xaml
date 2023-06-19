@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:SunClouds.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-	  FontFamily="Jura"
+	  FontFamily="pack://application:,,,/Resources/#Jura"
       Title="WeatherData">
 
 	<Grid>

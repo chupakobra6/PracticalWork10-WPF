@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SunClouds.ViewModel;
+using System;
 using System.Windows;
 using System.Windows.Input;
 
@@ -28,6 +29,7 @@ namespace SunClouds.View
 			e.CanExecute = true;
 		
 		}
+
 		// Minimize
 		private void CommandBinding_Executed_Minimize(object sender, ExecutedRoutedEventArgs e)
 		{

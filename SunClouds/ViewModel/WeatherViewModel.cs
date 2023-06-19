@@ -1,9 +1,5 @@
-﻿using PracticalWork8.ViewModel.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SunClouds.ViewModel.Helpers;
+
 
 namespace SunClouds.ViewModel
 {
@@ -28,7 +24,6 @@ namespace SunClouds.ViewModel
             get { return _minTemperature; }
             set { _minTemperature = value; OnPropertyChanged(); }
         }
-
         public string MaxTemperature
         {
             get { return _maxTemperature; }
@@ -58,6 +53,5 @@ namespace SunClouds.ViewModel
             get { return _windDirection; }
             set { _windDirection = value; OnPropertyChanged(); }
         }
-
     }
 }
