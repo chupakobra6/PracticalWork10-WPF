@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SunClouds
 {
@@ -25,6 +15,7 @@ namespace SunClouds
             InitializeComponent();
             //DataContext = new MainWindow(); // Не забываем для новых ViewModel задавать контекст
         }
+
 		private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
 		{
 			if (e.ChangedButton == MouseButton.Left)
@@ -32,15 +23,18 @@ namespace SunClouds
 				DragMove();
 			}
 		}
+		
 		private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
 		{
 			e.CanExecute = true;
 		}
+		
 		// Minimize
 		private void CommandBinding_Executed_Minimize(object sender, ExecutedRoutedEventArgs e)
 		{
 			SystemCommands.MinimizeWindow(this);
 		}
+		
 		// Maximize
 		private void CommandBinding_Executed_Maximize(object sender, ExecutedRoutedEventArgs e)
 		{
@@ -48,6 +42,7 @@ namespace SunClouds
 			RestoreButton.Visibility = Visibility.Visible;
 			MaximizeButton.Visibility = Visibility.Collapsed;
 		}
+		
 		// Restore
 		private void CommandBinding_Executed_Restore(object sender, ExecutedRoutedEventArgs e)
 		{
@@ -55,11 +50,13 @@ namespace SunClouds
 			RestoreButton.Visibility = Visibility.Collapsed;
 			MaximizeButton.Visibility = Visibility.Visible;
 		}
+		
 		// Для закрытия
 		private void CommandBinding_Executed_Close(object sender, ExecutedRoutedEventArgs e)
 		{
 			SystemCommands.CloseWindow(this);
 		}
+		
 		// Отвечает за смену кнопки во весь экран/Вид в окне
 		private void MainWindowStateChangeRaised(object sender, EventArgs e)
 		{

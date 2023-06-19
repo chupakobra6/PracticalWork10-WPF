@@ -145,17 +145,19 @@
 				<RowDefinition/>
 			</Grid.RowDefinitions>
 
-			<Button Grid.Row="0" Grid.Column="0" Margin="5,5,5,5" Background="#3D95B9" BorderThickness="0" Content="Температура" Foreground="White"/>
-			<Button Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" Background="#803D95B9" BorderThickness="0" Content="Температура" Foreground="White"/>
-			<Button Grid.Row="0" Grid.Column="2" Margin="5,5,5,5" Background="#803D95B9" BorderThickness="0" Content="Температура" Foreground="White"/>
+            <Button Grid.Row="0" Grid.Column="0" Margin="5,5,5,5" Background="#3D95B9" BorderThickness="0" Content="Температура" Foreground="White"/>
+            
+            <Button Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" Background="#803D95B9" BorderThickness="0" Content="Температура" Foreground="White"/>
+            
+            <Button Grid.Row="0" Grid.Column="2" Margin="5,5,5,5" Background="#803D95B9" BorderThickness="0" Content="Температура" Foreground="White"/>
 
-			<Grid Grid.ColumnSpan="3" Grid.Row="1" Margin="5,5,5,5" Background="Red" Opacity="0.3">
-				<!--Это место для графика-->
-				<Grid.Effect>
-					<DropShadowEffect Direction="-106" Opacity="0.4" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
-				</Grid.Effect>
-			</Grid>
-		</Grid>
-
-	</Grid>
+            <Grid Grid.ColumnSpan="3" Grid.Row="1" Margin="5,5,5,5" Background="Red" Opacity="0.3">
+            
+                <!--Это место для графика-->
+                <Grid.Effect>
+                    <DropShadowEffect Direction="-106" Opacity="0.4" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
+                </Grid.Effect>
+            </Grid>
+        </Grid>
+    </Grid>
 </Page>

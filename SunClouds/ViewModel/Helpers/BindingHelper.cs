@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace PracticalWork8.ViewModel.Helpers
+namespace PracticalWork10.ViewModel.Helpers
 {
     internal class BindingHelper : INotifyPropertyChanged
     {
