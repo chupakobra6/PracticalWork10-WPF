@@ -7,194 +7,108 @@
       xmlns:local="clr-namespace:SunClouds.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-	  FontFamily="Jura"
+	  FontFamily="pack://application:,,,/Resources/#Jura"
       Title="WeatherData">
 
-    <Grid>
-        <Rectangle Width="2" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="5,35,10,0" Stroke="White"/>
-
-        <Border Background="#F8C5B4" Height="70" Margin="10,30,20,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Opacity="0.5">
-            <Border.Effect>
-                <DropShadowEffect Direction="-106" Opacity="0.4" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
-            </Border.Effect>
-        </Border>
-
-        <Grid Height="70" Margin="15,25,25,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
-
-            <TextBox Background="Transparent" Width="80" HorizontalAlignment="Left" Text="21°" FontSize="45" HorizontalContentAlignment="Center" VerticalAlignment="Center" Foreground="#3D95B9" BorderThickness="0"/>
-
-            <Rectangle Height="60" Width="1" HorizontalAlignment="Left" Margin="80,15,0,10" Stroke="White"/>
-
-            <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top" Margin="90,10,0,0">
+	<Grid>
+		<Rectangle Width="2" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="5,35,10,0" Stroke="White"/>
+		<Border Background="#F8C5B4" Height="70" Margin="10,30,20,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Opacity="0.5">
+			<Border.Effect>
+				<DropShadowEffect Direction="-106" Opacity="0.4" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
+			</Border.Effect>
+		</Border>
+		<Grid Height="70" Margin="15,25,25,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <TextBox Background="Transparent" Width="80" HorizontalAlignment="Left" Text="{Binding ReallyTemperature}" FontSize="45" HorizontalContentAlignment="Center" VerticalAlignment="Center" Foreground="#3D95B9" BorderThickness="0"/>
+			<Rectangle Height="60" Width="1" HorizontalAlignment="Left" Margin="80,15,0,10" Stroke="White"/>
+			<StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top" Margin="90,10,0,0">
                 <Grid>
                     <Label Content="Ощущение:" FontSize="14" Foreground="White"/>
-
-                    <Label Content="21°" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
+                    <TextBlock Text="{Binding FeelsLike}"  HorizontalAlignment="Center"  FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
                 </Grid>
-
                 <Grid>
                     <Label Content="Мин:" FontSize="14" Foreground="White"/>
-
-                    <Label Content="21°" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
+                    <TextBlock Text="{Binding MinTemperature}" HorizontalAlignment="Center"   FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
                 </Grid>
-
                 <Grid>
                     <Label Content="Макс:" FontSize="14" Foreground="White"/>
-
-                    <Label Content="21°" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
+                    <TextBlock Text="{Binding MaxTemperature}" HorizontalAlignment="Center"  FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
                 </Grid>
-
                 <Grid>
                     <Label Content="Давление:" FontSize="14" Foreground="White"/>
-
-                    <Label Content="21°" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
+                    <TextBlock Text="{Binding Pressure}" HorizontalAlignment="Center"   FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
                 </Grid>
-
                 <Grid>
                     <Label Content="Влажность:" FontSize="14" Foreground="White"/>
-
-                    <Label Content="21°" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
+                    <TextBlock Text="{Binding Humidity}" HorizontalAlignment="Center"   FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
                 </Grid>
-
                 <Grid>
                     <Label Content="Ветер м/с" FontSize="14" Foreground="White"/>
-
-                    <Label Content="21°" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
+                    <TextBlock Text="{Binding WindSpeed}" HorizontalAlignment="Center"  FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
                 </Grid>
-
                 <Grid>
                     <Label Content="Ветер:" FontSize="14" Foreground="White"/>
-
-                    <Label Content="21°" HorizontalContentAlignment="Center" FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
+                    <TextBlock Text="{Binding WindDirection}" HorizontalAlignment="Center"   FontSize="14" Foreground="White" VerticalAlignment="Bottom"/>
                 </Grid>
             </StackPanel>
-        </Grid>
+		</Grid>
+		<Border SnapsToDevicePixels="True" Grid.Column="0" Background="#F8C5B4" Opacity="0.5" Margin="10,115,20,0" Height="130" VerticalAlignment="Top">
 
-        <Border SnapsToDevicePixels="True" Grid.Column="0" Background="#F8C5B4" Opacity="0.5" Margin="10,115,20,0" Height="130" VerticalAlignment="Top">
+            <ListBox Background="Transparent"  ItemsSource="{Binding Allday}">
+                <ListBox.Resources>
+                    <Style TargetType="{x:Type ScrollViewer}">
+                        <Setter Property="OverridesDefaultStyle" Value="True" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="145" />
+                                            <RowDefinition Height="10" />
+                                        </Grid.RowDefinitions>
 
-            <ListBox VerticalAlignment="Stretch" Background="Transparent">
+                                        <ScrollContentPresenter Grid.Row="0"/>
+                                        <ScrollBar Orientation="Horizontal" Grid.Row="1" Value="{TemplateBinding HorizontalOffset}"
+                                                   Maximum="{TemplateBinding ScrollableWidth}" ViewportSize="{TemplateBinding ViewportWidth}"
+                                                   BorderThickness="0" Background="Black">
+                                            <ScrollBar.Template>
+                                                <ControlTemplate TargetType="{x:Type ScrollBar}">
+                                                    <Border Height="5"
+                                                            BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="3" Background="White" />
+                                                </ControlTemplate>
+                                            </ScrollBar.Template>
+                                        </ScrollBar>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.Resources>
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="Margin" Value="5,5,5,15"/>
                         <Setter Property="Padding" Value="0,0,0,0"/>
                     </Style>
                 </ListBox.ItemContainerStyle>
-
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal" ></StackPanel>
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
-                
-                <ListBoxItem Width="70" Background="#903D95B9">
-                    <Grid>
-                        <Border Width="70" Height="35" Margin="0,10,0,0" Background="#3D95B9"/>
-                
-                        <Label Content="16:00" Margin="0,-11,0,0" Foreground="White" Height="15" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="0,18,0,0" Foreground="White" Height="20" FontSize="20" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="Влаж" Margin="-5,60,40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="Ощущ" Margin="-5,60,-40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="-4,85,40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="-4,85,-40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                    </Grid>
-                </ListBoxItem>
-                
-                <ListBoxItem Width="70" Background="#903D95B9">
-                    <Grid>
-                        <Border Width="70" Height="35" Margin="0,10,0,0" Background="#3D95B9"/>
-                
-                        <Label Content="16:00" Margin="0,-11,0,0" Foreground="White" Height="15" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="0,18,0,0" Foreground="White" Height="20" FontSize="20" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="Влаж" Margin="-5,60,40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="Ощущ" Margin="-5,60,-40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="-4,85,40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="-4,85,-40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                    </Grid>
-                </ListBoxItem>
-               
-                <ListBoxItem Width="70" Background="#903D95B9">
-                    <Grid>
-                        <Border Width="70" Height="35" Margin="0,10,0,0" Background="#3D95B9"/>
-                
-                        <Label Content="16:00" Margin="0,-11,0,0" Foreground="White" Height="15" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="0,18,0,0" Foreground="White" Height="20" FontSize="20" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="Влаж" Margin="-5,60,40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="Ощущ" Margin="-5,60,-40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="-4,85,40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="-4,85,-40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                    </Grid>
-                </ListBoxItem>
-                
-                <ListBoxItem Width="70" Background="#903D95B9">
-                    <Grid>
-                        <Border Width="70" Height="35" Margin="0,10,0,0" Background="#3D95B9"/>
-                
-                        <Label Content="16:00" Margin="0,-11,0,0" Foreground="White" Height="15" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="0,18,0,0" Foreground="White" Height="20" FontSize="20" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="Влаж" Margin="-5,60,40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="Ощущ" Margin="-5,60,-40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="-4,85,40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="-4,85,-40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                    </Grid>
-                </ListBoxItem>
-               
-                <ListBoxItem Width="70" Background="#903D95B9">
-                    <Grid>
-                        <Border Width="70" Height="35" Margin="0,10,0,0" Background="#3D95B9"/>
-                       
-                        <Label Content="16:00" Margin="0,-11,0,0" Foreground="White" Height="15" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="0,18,0,0" Foreground="White" Height="20" FontSize="20" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="Влаж" Margin="-5,60,40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="Ощущ" Margin="-5,60,-40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="-4,85,40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="-4,85,-40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                    </Grid>
-                </ListBoxItem>
-                
-                <ListBoxItem Width="70" Background="#903D95B9">
-                    <Grid>
-                        <Border Width="70" Height="35" Margin="0,10,0,0" Background="#3D95B9"/>
-                
-                        <Label Content="16:00" Margin="0,-11,0,0" Foreground="White" Height="15" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="0,18,0,0" Foreground="White" Height="20" FontSize="20" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="Влаж" Margin="-5,60,40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="Ощущ" Margin="-5,60,-40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="-4,85,40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                        
-                        <Label Content="21°" Margin="-4,85,-40,0" Foreground="White" Height="13" Width="40" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
-                    </Grid>
-                </ListBoxItem>
+                <ListBox.ItemTemplate >
+                    <DataTemplate>
+                        <Grid Width="90">
+                            <Image Source="{Binding ImgSource}" Grid.Row="1" Height="35" ClipToBounds="True" Margin="0,0,0,70"/>
+                            <Border Width="90" Height="40" Margin="0,10,0,0" />
+                            <Label Content="{Binding Time}" Margin="0,0,0,15" Foreground="White" Height="15" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
+                            <Label Content="{Binding Temperature}" Margin="0,18,0,0" Foreground="White" Height="25" FontSize="20" Padding="0,0,0,0" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+                            <Label Content="Влаж" Margin="0,65,40,0" Foreground="White" Height="13" Width="35" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
+                            <Label Content="Ощущ" Margin="0,65,-40,0" Foreground="White" Height="13" Width="35" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
+                            <Label Content="{Binding Humidity}" Margin="0,90,40,0" Foreground="White" Height="13" Width="35" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
+                            <Label Content="{Binding Fellslike}" Margin="0,90,-40,0" Foreground="White" Height="13" Width="35" FontSize="10" Padding="0,0,0,0"  HorizontalContentAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
-            
             <Border.Effect>
                 <DropShadowEffect Direction="-106" Opacity="0.4" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
             </Border.Effect>
@@ -202,19 +116,33 @@
         </Border>
         
         <Grid Grid.Column="0" Background="#70F8C5B4" Margin="10,265,15,20" VerticalAlignment="Stretch">
-            <WrapPanel>
-                <Button Content="Температура" Command="{Binding ChangeChartCommand}" CommandParameter="Temperature" HorizontalAlignment="Center" Margin="9,8,0,0" VerticalAlignment="Center" Width="210" Height="30" Background="#FF72AAC5" BorderBrush="{x:Null}" Foreground="#FFF0F0F0" FontSize="14" />
-                <Button Content="Ощущается как" Command="{Binding ChangeChartCommand}" CommandParameter="FeelsLike" HorizontalAlignment="Center" Margin="9,8,0,0" VerticalAlignment="Center" Width="210" Height="30" Background="#FF72AAC5" BorderBrush="{x:Null}" Foreground="#FFF0F0F0" FontSize="14"/>
-                <Button Content="Давление" Command="{Binding ChangeChartCommand}" CommandParameter="Pressure" HorizontalAlignment="Center" Margin="9,8,0,0" VerticalAlignment="Center" Width="210" Height="30" Background="#FF72AAC5" BorderBrush="{x:Null}" Foreground="#FFF0F0F0" FontSize="14"/>
-            </WrapPanel>
-            <lvc:CartesianChart Series="{Binding ChartSeries}" LegendLocation="Right" Margin="0,40,0,0">
-                <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Title="Hour" Labels="{Binding HourlyWeatherTimes}"/>
-                </lvc:CartesianChart.AxisX>
-                <lvc:CartesianChart.AxisY>
-                    <lvc:Axis Title="Value"/>
-                </lvc:CartesianChart.AxisY>
-            </lvc:CartesianChart>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" Margin="5,5,5,5" Background="#3D95B9" BorderThickness="0" Content="Температура" Foreground="White"/>
+            
+            <Button Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" Background="#803D95B9" BorderThickness="0" Content="Температура" Foreground="White"/>
+            
+            <Button Grid.Row="0" Grid.Column="2" Margin="5,5,5,5" Background="#803D95B9" BorderThickness="0" Content="Температура" Foreground="White"/>
+
+            <Grid Grid.ColumnSpan="3" Grid.Row="1" Margin="5,5,5,5" Background="Red" Opacity="0.3">
+            
+                <!--Это место для графика-->
+                <Grid.Effect>
+                    <DropShadowEffect Direction="-106" Opacity="0.4" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
+                </Grid.Effect>
+            </Grid>
+                    <DropShadowEffect Direction="-106" Opacity="0.4" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
+                </Grid.Effect>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

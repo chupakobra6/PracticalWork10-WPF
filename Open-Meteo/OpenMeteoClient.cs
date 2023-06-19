@@ -224,63 +224,63 @@ namespace OpenMeteo
             switch (weathercode)
             {
                 case 0:
-                    return "Clear sky";
+                    return "Чистое небо";
                 case 1:
-                    return "Mainly clear";
+                    return "В основном ясно";
                 case 2:
-                    return "Partly cloudy";
+                    return "Переменная облачность";
                 case 3:
-                    return "Overcast";
+                    return "Пасмурно";
                 case 45:
-                    return "Fog";
+                    return "Туман";
                 case 48:
-                    return "Depositing rime Fog";
+                    return "Осаждающий иней туман";
                 case 51:
-                    return "Light drizzle";
+                    return "Легкий моросящий дождь";
                 case 53:
-                    return "Moderate drizzle";
+                    return "Умеренный моросящий дождь";
                 case 55:
-                    return "Dense drizzle";
+                    return "Густой моросящий дождь";
                 case 56:
-                    return "Light freezing drizzle";
+                    return "Легкая моросящая изморось";
                 case 57:
-                    return "Dense freezing drizzle";
+                    return "Густой моросящий дождь";
                 case 61:
-                    return "Slight rain";
+                    return "Небольшой дождь";
                 case 63:
-                    return "Moderate rain";
+                    return "Умеренный дождь";
                 case 65:
-                    return "Heavy rain";
+                    return "Ливень";
                 case 66:
-                    return "Light freezing rain";
+                    return "Легкий ледяной дождь";
                 case 67:
-                    return "Heavy freezing rain";
+                    return "Сильный ледяной дождь";
                 case 71:
-                    return "Slight snow fall";
+                    return "Выпал небольшой снег";
                 case 73:
-                    return "Moderate snow fall";
+                    return "Умеренный снегопад";
                 case 75:
-                    return "Heavy snow fall";
+                    return "Выпадает сильный снег";
                 case 77:
-                    return "Snow grains";
+                    return "Снежные зерна";
                 case 80:
-                    return "Slight rain showers";
+                    return "Небольшой ливень";
                 case 81:
-                    return "Moderate rain showers";
+                    return "Умеренные ливневые дожди";
                 case 82:
-                    return "Violent rain showers";
+                    return "Сильные ливневые дожди";
                 case 85:
-                    return "Slight snow showers";
+                    return "Небольшой снегопад";
                 case 86:
-                    return "Heavy snow showers";
+                    return "Сильные снегопады";
                 case 95:
-                    return "Thunderstorm";
+                    return "Гроза";
                 case 96:
-                    return "Thunderstorm with light hail";
+                    return "Гроза с небольшим градом";
                 case 99:
-                    return "Thunderstorm with heavy hail";
+                    return "Гроза с сильным градом";
                 default:
-                    return "Invalid weathercode";
+                    return "Неверный код погоды";
             }
         }
 
@@ -309,7 +309,7 @@ namespace OpenMeteo
           
             try
             {
-                HttpResponseMessage response = await httpController.Client.GetAsync(MergeUrlWithOptions(_geocodeApiUrl, options));
+                HttpResponseMessage response =  await httpController.Client.GetAsync(MergeUrlWithOptions(_geocodeApiUrl, options));
 
                 response.EnsureSuccessStatusCode();
 
@@ -357,7 +357,7 @@ namespace OpenMeteo
             qieru += "&precipitation_unit=" + options.Precipitation_Unit.ToString();
             if (options.Timezone != string.Empty)
                 qieru += "&timezone=" + options.Timezone;
-            qieru += "&hourly=temperature_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,weathercode,pressure_msl,surface_pressure,cloudcover,cloudcover_low,cloudcover_mid,cloudcover_high,visibility,is_day";
+            qieru += "&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,weathercode,pressure_msl,surface_pressure,cloudcover,cloudcover_low,cloudcover_mid,cloudcover_high,visibility,is_day";
             qieru += "&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant";
             qieru += "&current_weather=" + options.Current_Weather;
 
