@@ -165,5 +165,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Open-Meteo\OpenMeteo.csproj">
+      <Project>{6dd5005a-b2b7-48d2-933b-223fd13aee1d}</Project>
+      <Name>OpenMeteo</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

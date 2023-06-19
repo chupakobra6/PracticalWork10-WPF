@@ -13,8 +13,7 @@
         WindowStartupLocation="CenterScreen"
         FontFamily="Jura"
         Title="Главное окно с погодой"
-		Height="850" Width="1500"
-        >
+		Height="850" Width="1500">
     
 	<WindowChrome.WindowChrome>
 		<WindowChrome CaptionHeight="30" CornerRadius="0"/>
@@ -69,7 +68,7 @@
 
 	<Grid x:Name="LayoutRoot">
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="438*"/>
+			<ColumnDefinition Width="274"/>
 			<ColumnDefinition Width="1062*"/>
 		</Grid.ColumnDefinitions>
         
@@ -79,16 +78,16 @@
 					<ColumnDefinition Width="110"/>
 					<ColumnDefinition Width="110"/>
 				</Grid.ColumnDefinitions>
-                
-				<TextBlock Grid.Column="1" Height="15" Margin="5,-30,0,0"  Text="Ясно,21" FontWeight="Bold" Foreground="#3D95B9" TextAlignment="Right"/>
-				
-                <Image Source="/Resources/Sunny.png" Grid.Column="0" Height="80">
+
+                <TextBlock Grid.Column="1" Height="15" Width="120" Margin="5,-30,0,0"  Text="{Binding WeathercodeTemperature}" FontWeight="Bold" Foreground="#3D95B9" TextAlignment="Right" HorizontalAlignment="Right"/>
+
+                <Image x:Name="ToNow" Source="{Binding Icon}" Grid.Column="0" Height="80">
 					<Image.Effect>
 						<DropShadowEffect Direction="-106" Opacity="1" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
 					</Image.Effect>
 				</Image>
-                
-				<TextBlock Grid.Column="2" Height="30" Margin="5,15,0,0"  Text="Ощущается как что то там " TextWrapping="Wrap" FontWeight="Bold" Foreground="#3D95B9" TextAlignment="Right"/>
+
+                <TextBlock Grid.Column="2" Height="30" Margin="5,15,0,0"  Text="{Binding ApparentTemperature}" TextWrapping="Wrap" FontWeight="Bold" Foreground="#3D95B9" TextAlignment="Right"/>
 			
             </Grid>
 			
@@ -100,18 +99,18 @@
 						<ColumnDefinition Width="60"/>
 						<ColumnDefinition Width="150"/>
 					</Grid.ColumnDefinitions>
-                    
-					<TextBlock Grid.Column="0" Margin="15,5,0,0"  Text="16:00" FontWeight="Bold" Height="45" Padding="0,10,0,0" Foreground="#3D95B9"/>
-					
-                    <TextBlock Grid.Column="2" Height="15" Margin="5,-30,0,0"  Text="Ясно,21" FontWeight="Bold" Foreground="#3D95B9"/>
-					
-                    <Image Source="/Resources/Sunny.png" Grid.Column="1" Height="45">
+
+                    <TextBlock Grid.Column="0" Margin="15,5,0,0"  Text="{Binding Time}" FontWeight="Bold" Height="45" Padding="0,10,0,0" Foreground="#3D95B9"/>
+
+                    <TextBlock Grid.Column="2" Height="15" Margin="5,-30,0,0"  Text="{Binding WeathercodeTemperature}" FontWeight="Bold" Foreground="#3D95B9"/>
+
+                    <Image Source="{Binding Icon}" Grid.Column="1" Height="45">
 						<Image.Effect>
 							<DropShadowEffect Direction="-106" Opacity="1" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
 						</Image.Effect>
 					</Image>
-					
-                    <TextBlock Grid.Column="2" Height="30" Margin="5,15,0,0"  Text="Ощущается как что то там " TextWrapping="Wrap" FontWeight="Bold" Foreground="#3D95B9"/>
+
+                    <TextBlock Grid.Column="2" Height="30" Margin="5,15,0,0"  Text="{Binding ApparentTemperature}" TextWrapping="Wrap" FontWeight="Bold" Foreground="#3D95B9"/>
 				
                 </Grid>
 				
@@ -121,61 +120,40 @@
 						<ColumnDefinition Width="60"/>
 						<ColumnDefinition Width="150"/>
 					</Grid.ColumnDefinitions>
-					
-                    <TextBlock Grid.Column="0" Margin="15,5,0,0"  Text="16:00" FontWeight="Bold" Height="45" Padding="0,10,0,0" Foreground="#3D95B9"/>
-					
-                    <TextBlock Grid.Column="2" Height="15" Margin="5,-30,0,0"  Text="Ясно,21" FontWeight="Bold" Foreground="#3D95B9"/>
-					
-                    <Image Source="/Resources/Sunny.png" Grid.Column="1" Height="45">
+
+                    <TextBlock Grid.Column="0" Margin="15,5,0,0"  Text="{Binding Time2}" FontWeight="Bold" Height="45" Padding="0,10,0,0" Foreground="#3D95B9"/>
+
+                    <TextBlock Grid.Column="2" Height="15" Margin="5,-30,0,0"  Text="{Binding WeathercodeTemperature2}" FontWeight="Bold" Foreground="#3D95B9"/>
+
+                    <Image Source="{Binding Icon2}" Grid.Column="1" Height="45">
 						<Image.Effect>
 							<DropShadowEffect Direction="-106" Opacity="1" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
 						</Image.Effect>
 					</Image>
-					
-                    <TextBlock Grid.Column="2" Height="30" Margin="5,15,0,0"  Text="Ощущается как что то там " TextWrapping="Wrap" FontWeight="Bold" Foreground="#3D95B9"/>
+
+                    <TextBlock Grid.Column="2" Height="30" Margin="5,15,0,0"  Text="{Binding ApparentTemperature2}" TextWrapping="Wrap" FontWeight="Bold" Foreground="#3D95B9"/>
 				</Grid>
-				
+
                 <Grid Margin="0,0,0,50">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="60"/>
-						<ColumnDefinition Width="60"/>
-						<ColumnDefinition Width="150"/>
-					</Grid.ColumnDefinitions>
-					
-                    <TextBlock Grid.Column="0" Margin="15,5,0,0"  Text="16:00" FontWeight="Bold" Height="45" Padding="0,10,0,0" Foreground="#3D95B9"/>
-					
-                    <TextBlock Grid.Column="2" Height="15" Margin="5,-30,0,0"  Text="Ясно,21" FontWeight="Bold" Foreground="#3D95B9"/>
-					
-                    <Image Source="/Resources/Sunny.png" Grid.Column="1" Height="45">
-						<Image.Effect>
-							<DropShadowEffect Direction="-106" Opacity="1" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
-						</Image.Effect>
-					</Image>
-					
-                    <TextBlock Grid.Column="2" Height="30" Margin="5,15,0,0"  Text="Ощущается как что то там " TextWrapping="Wrap" FontWeight="Bold" Foreground="#3D95B9"/>
-				</Grid>
-				
-                <Grid Margin="0,0,0,50">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="60"/>
-						<ColumnDefinition Width="60"/>
-						<ColumnDefinition Width="150"/>
-					</Grid.ColumnDefinitions>
-				
-                    <TextBlock Grid.Column="0" Margin="15,5,0,0"  Text="16:00" FontWeight="Bold" Height="45" Padding="0,10,0,0" Foreground="#3D95B9"/>
-					
-                    <TextBlock Grid.Column="2" Height="15" Margin="5,-30,0,0"  Text="Ясно,21" FontWeight="Bold" Foreground="#3D95B9"/>
-					
-                    <Image Source="/Resources/Sunny.png" Grid.Column="1" Height="45">
-						<Image.Effect>
-							<DropShadowEffect Direction="-106" Opacity="1" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
-						</Image.Effect>
-					</Image>
-					
-                    <TextBlock Grid.Column="2" Height="30" Margin="5,15,0,0"  Text="Ощущается как что то там " TextWrapping="Wrap" FontWeight="Bold" Foreground="#3D95B9"/>
-				
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Margin="15,5,0,0"  Text="{Binding Time3}" FontWeight="Bold" Height="45" Padding="0,10,0,0" Foreground="#3D95B9"/>
+
+                    <TextBlock Grid.Column="2" Height="15" Margin="5,-30,0,0"  Text="{Binding WeathercodeTemperature3}" FontWeight="Bold" Foreground="#3D95B9"/>
+
+                    <Image Source="{Binding Icon3}" Grid.Column="1" Height="45">
+                        <Image.Effect>
+                            <DropShadowEffect Direction="-106" Opacity="1" ShadowDepth="5" RenderingBias="Quality" BlurRadius="10"/>
+                        </Image.Effect>
+                    </Image>
+
+                    <TextBlock Grid.Column="2" Height="30" Margin="5,15,0,0"  Text="{Binding ApparentTemperature3}" TextWrapping="Wrap" FontWeight="Bold" Foreground="#3D95B9"/>
                 </Grid>
-			</WrapPanel>
+            </WrapPanel>
 			
             <Image Margin="88,120,5,15" Source="/Resources/Line.png" Panel.ZIndex="-1" Width="5" HorizontalAlignment="Left" Opacity="1" Stretch="Fill">
 				<Image.Effect>
@@ -189,7 +167,7 @@
         <Border Grid.Column="0" Background="#F8C5B4" Opacity="0.5"/>
 		
         <Grid Grid.Column="0">
-			<Label Content="Северобайкальск" Height="40" VerticalAlignment="Top" FontWeight="Bold" Margin="0,19,0,0" FontSize="21" HorizontalAlignment="Center" Foreground="#3D95B9"/>
+            <Label Content="{Binding City}" Height="40" VerticalAlignment="Top" FontWeight="Bold" Margin="0,19,0,0" FontSize="21" HorizontalAlignment="Center" Foreground="#3D95B9"/>
 			
             <Rectangle Height="2" Width="240" VerticalAlignment="Top" Margin="0,55,0,0" Stroke="#3D95B9"/>
 		</Grid>

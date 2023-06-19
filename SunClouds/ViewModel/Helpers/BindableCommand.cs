@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace PracticalWork10.ViewModel.Helpers
+namespace SunClouds.ViewModel.Helpers
 {
     internal class BindableCommand : ICommand
     {
