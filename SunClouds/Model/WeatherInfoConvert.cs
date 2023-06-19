@@ -6,13 +6,34 @@ using System.Threading.Tasks;
 
 namespace SunClouds.Model
 {
-    internal class WeatherInfoConvert
+    public class WeatherInfoConvert
     {
-        private int Value;
-       public WeatherInfoConvert(int value)
+
+
+        public string GetTemperature(int value)
         {
-            Value = value;
+            return $"{value}°";
         }
+
         
+        public string GetPressure(int value)
+        {
+            return $"{value} мм рт. ст.";
+        }
+
+        public string GetHumidity(int value)
+        {
+            return $"{value}%";
+        }
+
+        public string GetWindSpeed(int value)
+        {
+            return $"{value} м/с";
+        }
+
+        public string GetWindDirection(int value)
+        {
+            return $"{value}";
+        }
     }
 }

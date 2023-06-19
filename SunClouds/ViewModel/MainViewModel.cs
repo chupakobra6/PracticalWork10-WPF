@@ -1,4 +1,4 @@
-﻿using PracticalWork10.ViewModel.Helpers;
+﻿using SunClouds.ViewModel.Helpers;
 
 namespace SunClouds.ViewModel
 {

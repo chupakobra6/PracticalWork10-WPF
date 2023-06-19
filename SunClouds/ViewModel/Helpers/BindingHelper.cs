@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace PracticalWork10.ViewModel.Helpers
+namespace SunClouds.ViewModel.Helpers
 {
     internal class BindingHelper : INotifyPropertyChanged
     {

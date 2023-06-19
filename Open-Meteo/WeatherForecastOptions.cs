@@ -114,7 +114,7 @@ namespace OpenMeteo
             Precipitation_Unit = PrecipitationUnitType.mm;
             Timeformat = TimeformatType.iso8601;
             Cell_Selection = CellSelectionType.land;
-            Timezone = "GMT";
+            Timezone = "auto";
             Current_Weather = true;
             Start_date = string.Empty;
             End_date = string.Empty;
@@ -128,7 +128,7 @@ namespace OpenMeteo
             Precipitation_Unit = PrecipitationUnitType.mm;
             Timeformat = TimeformatType.iso8601;
             Cell_Selection = CellSelectionType.land;
-            Timezone = "GMT";
+            Timezone = "auto";
             Current_Weather = true;
             Start_date = string.Empty;
             End_date = string.Empty;

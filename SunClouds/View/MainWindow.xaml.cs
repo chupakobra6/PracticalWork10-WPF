@@ -13,7 +13,7 @@ namespace SunClouds
         public MainWindow()
         {
             InitializeComponent();
-            //DataContext = new MainWindow(); // Не забываем для новых ViewModel задавать контекст
+            //DataContext = new MainViewModel(); // Не забываем для новых ViewModel задавать контекст
         }
 
 		private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
