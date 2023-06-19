@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SunClouds.View;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,13 @@ namespace SunClouds
     /// </summary>
     public partial class App : Application
     {
+        public static AuthWindow authWindow;
+        public static MainWindow mainWindow;
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            authWindow = new AuthWindow();
+            authWindow.Show();
+        }
     }
 }

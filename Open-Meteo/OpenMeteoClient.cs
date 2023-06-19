@@ -309,7 +309,7 @@ namespace OpenMeteo
           
             try
             {
-                HttpResponseMessage response = await httpController.Client.GetAsync(MergeUrlWithOptions(_geocodeApiUrl, options));
+                HttpResponseMessage response =  await httpController.Client.GetAsync(MergeUrlWithOptions(_geocodeApiUrl, options));
 
                 response.EnsureSuccessStatusCode();
 
@@ -357,7 +357,7 @@ namespace OpenMeteo
             qieru += "&precipitation_unit=" + options.Precipitation_Unit.ToString();
             if (options.Timezone != string.Empty)
                 qieru += "&timezone=" + options.Timezone;
-            qieru += "&hourly=temperature_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,weathercode,pressure_msl,surface_pressure,cloudcover,cloudcover_low,cloudcover_mid,cloudcover_high,visibility,is_day";
+            qieru += "&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,weathercode,pressure_msl,surface_pressure,cloudcover,cloudcover_low,cloudcover_mid,cloudcover_high,visibility,is_day";
             qieru += "&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant";
             qieru += "&current_weather=" + options.Current_Weather;
 

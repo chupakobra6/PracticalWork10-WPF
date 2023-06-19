@@ -12,6 +12,7 @@ namespace SunClouds.View
 		public AuthWindow()
 		{
 			InitializeComponent();
+			DataContext = new AuthViewModel();
 		}
 
 		private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
