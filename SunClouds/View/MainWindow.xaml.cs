@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SunClouds.ViewModel;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,7 +14,7 @@ namespace SunClouds
         public MainWindow()
         {
             InitializeComponent();
-            //DataContext = new MainWindow(); // Не забываем для новых ViewModel задавать контекст
+			DataContext = new MainViewModel(); 
         }
 
 		private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
