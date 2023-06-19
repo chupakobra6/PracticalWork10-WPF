@@ -29,6 +29,7 @@ namespace SunClouds.View
 			e.CanExecute = true;
 		
 		}
+
 		// Minimize
 		private void CommandBinding_Executed_Minimize(object sender, ExecutedRoutedEventArgs e)
 		{

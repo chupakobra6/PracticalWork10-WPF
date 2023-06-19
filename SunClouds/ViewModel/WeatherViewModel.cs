@@ -178,7 +178,6 @@ namespace SunClouds.ViewModel
             get { return _minTemperature; }
             set { _minTemperature = value; OnPropertyChanged(); }
         }
-
         public string MaxTemperature
         {
             get { return _maxTemperature; }
