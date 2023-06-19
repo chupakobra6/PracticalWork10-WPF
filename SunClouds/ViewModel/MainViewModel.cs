@@ -1,4 +1,5 @@
-﻿using OpenMeteo;
+﻿using SunClouds.ViewModel.Helpers;
+using OpenMeteo;
 using SunClouds.ViewModel.Helpers;
 using System;
 using System.ComponentModel;

@@ -1,5 +1,8 @@
-﻿using OpenMeteo;
-using SunClouds.ViewModel.Helpers;
+﻿using PracticalWork8.ViewModel.Helpers;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -10,6 +13,7 @@ namespace SunClouds.ViewModel
         private bool flag = false;
 
         private string _city;
+        private bool Oke = false;
         public string City
         {
             get { return _city; }
@@ -17,7 +21,6 @@ namespace SunClouds.ViewModel
         }
 
         public BindableCommand Autorization { get; set; }
-
         public AuthViewModel()
         {
             Autorization = new BindableCommand(_ => AutorizationCheck());
