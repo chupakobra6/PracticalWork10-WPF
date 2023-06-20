@@ -96,7 +96,16 @@
                     Content="X"
                     Foreground="White"
                     Command="{Binding ClearCityTextBoxCommand}"
-                    />
+                    >
+		    <Button.Template>
+			<ControlTemplate TargetType="Button">
+			    <Grid>
+				<Rectangle Fill="Transparent" Stroke="Transparent"/>
+				<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+			    </Grid>
+			</ControlTemplate>
+		    </Button.Template>
+		</Button>
             </Grid>
 
             <Button
