@@ -1,13 +1,8 @@
 ﻿using OpenMeteo;
 using SunClouds.Model;
-using SunClouds.View;
 using SunClouds.ViewModel.Helpers;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SunClouds.ViewModel
@@ -23,8 +18,6 @@ namespace SunClouds.ViewModel
         private string _windDirection;
         private string _reallyTemperature;
 
-
-
         private ObservableCollection<WithAlldayBlock> _allday;
         public ObservableCollection<WithAlldayBlock> Allday
         {
@@ -32,13 +25,11 @@ namespace SunClouds.ViewModel
             set { _allday = value; OnPropertyChanged(); }
         }
 
-
         #region Методы для выгрузки
         public string GetTemperature(int value)
         {
             return $"{value}°";
         }
-
 
         public string GetPressure(int value)
         {
@@ -152,7 +143,6 @@ namespace SunClouds.ViewModel
                     Icon = "/Resources/Sunny..png";
                     return Icon;
             }
-            
         }
         #endregion
 
@@ -161,12 +151,14 @@ namespace SunClouds.ViewModel
             Allday = new ObservableCollection<WithAlldayBlock>();
             Task.Run(async () => await RunAsync()).GetAwaiter().GetResult();
         }
+
         #region Подвязка
         public string ReallyTemperature
         {
             get { return _reallyTemperature; }
             set { _reallyTemperature = value; OnPropertyChanged(); }
         }
+
         public string FeelsLike
         {
             get { return _feelsLike; }
@@ -213,7 +205,7 @@ namespace SunClouds.ViewModel
             OpenMeteoClient client = new OpenMeteoClient();
             WeatherForecast weatherData = await client.QueryAsync(SunClouds.Properties.Settings.Default.CurrentCity);
 
-            ReallyTemperature = GetTemperature(Convert.ToInt32(weatherData.CurrentWeather.Temperature));
+            ReallyTemperature = GetTemperature(Convert.ToInt32(weatherData.Hourly.Temperature_2m[0]));
             FeelsLike = GetTemperature(Convert.ToInt32(weatherData.Hourly.Apparent_temperature[0]));
             MinTemperature = GetTemperature(Convert.ToInt32(weatherData.Daily.Apparent_temperature_min[0]));
             MaxTemperature = GetTemperature(Convert.ToInt32(weatherData.Daily.Apparent_temperature_max[0]));
@@ -221,7 +213,9 @@ namespace SunClouds.ViewModel
             Humidity = GetHumidity(Convert.ToInt32(weatherData.Hourly.Relativehumidity_2m[0]));
             WindSpeed = GetWindSpeed(Convert.ToInt32(weatherData.CurrentWeather.Windspeed));
             WindDirection = GetWindDirection(Convert.ToInt32(weatherData.CurrentWeather.WindDirection));
+
             DateTime dt = DateTime.Parse(weatherData.CurrentWeather.Time);
+
             if (Allday.Count < 11)
             {
                 for (int i = 0; i < 11; i++)
@@ -233,10 +227,6 @@ namespace SunClouds.ViewModel
                         GetImg((int)weatherData.Hourly.Weathercode[i])));
                 }
             }
-
-
-
-            }
-
         }
+    }
 }

@@ -1,31 +1,17 @@
 ﻿using SunClouds.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SunClouds.View
 {
-	/// <summary>
-	/// Interaction logic for WeatherData.xaml
-	/// </summary>
-	public partial class WeatherData : Page
+    /// <summary>
+    /// Interaction logic for WeatherData.xaml
+    /// </summary>
+    public partial class WeatherData : Page
 	{
 		public WeatherData()
 		{
 			InitializeComponent();
 			DataContext = new WeatherViewModel();
-
         }
 	}
 }

@@ -1,8 +1,6 @@
-﻿using PracticalWork8.ViewModel.Helpers;
+﻿using OpenMeteo;
+using SunClouds.ViewModel.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -13,20 +11,26 @@ namespace SunClouds.ViewModel
         private bool flag = false;
 
         private string _city;
-        private bool Oke = false;
         public string City
         {
             get { return _city; }
             set { _city = value; OnPropertyChanged(); }
         }
 
-        public BindableCommand Autorization { get; set; }
+        public BindableCommand AuthorizationCommand { get; set; }
+        public BindableCommand ClearCityTextBoxCommand { get; set; }
         public AuthViewModel()
         {
-            Autorization = new BindableCommand(_ => AutorizationCheck());
+            AuthorizationCommand = new BindableCommand(_ => Authorization());
+            ClearCityTextBoxCommand = new BindableCommand(_ => ClearCityTextBox());
         }
 
-        private void AutorizationCheck()
+        private void ClearCityTextBox()
+        {
+            City = string.Empty;
+        }
+
+        private void Authorization()
         {
             Task.Run(async () => await RunAsync()).GetAwaiter().GetResult();
 
@@ -41,12 +45,12 @@ namespace SunClouds.ViewModel
                 }
                 else
                 {
-                    MessageBox.Show("Такого города не существует"); 
+                    MessageBox.Show("Введено некорректное название города.", "Город не найден!", MessageBoxButton.OK, MessageBoxImage.Warning); 
                 }
             }
             else
             {
-                MessageBox.Show("Заполните поля");
+                MessageBox.Show("Поле ввода название города не заполнено.", "Пустое поле!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 

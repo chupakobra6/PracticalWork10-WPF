@@ -1,6 +1,5 @@
 ﻿using SunClouds.ViewModel.Helpers;
 using OpenMeteo;
-using SunClouds.ViewModel.Helpers;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -33,7 +32,7 @@ namespace SunClouds.ViewModel
             set
             {
                 weathercodeTemperature = value;
-                OnPropertyChanged("WeathercodeTemperature");
+                OnPropertyChanged();
             }
         }
 
@@ -43,7 +42,7 @@ namespace SunClouds.ViewModel
             set
             {
                 weathercodeTemperature2 = value;
-                OnPropertyChanged("WeathercodeTemperature2");
+                OnPropertyChanged();
             }
         }
 
@@ -53,7 +52,7 @@ namespace SunClouds.ViewModel
             set
             {
                 weathercodeTemperature3 = value;
-                OnPropertyChanged("WeathercodeTemperature3");
+                OnPropertyChanged();
             }
         }
 
@@ -63,7 +62,7 @@ namespace SunClouds.ViewModel
             set
             {
                 apparentTemperature = value;
-                OnPropertyChanged("ApparentTemperature");
+                OnPropertyChanged();
             }
         }
 
@@ -73,7 +72,7 @@ namespace SunClouds.ViewModel
             set
             {
                 apparentTemperature2 = value;
-                OnPropertyChanged("ApparentTemperature2");
+                OnPropertyChanged();
             }
         }
 
@@ -83,7 +82,7 @@ namespace SunClouds.ViewModel
             set
             {
                 apparentTemperature3 = value;
-                OnPropertyChanged("ApparentTemperature3");
+                OnPropertyChanged();
             }
         }
         public string Time
@@ -92,7 +91,7 @@ namespace SunClouds.ViewModel
             set
             {
                 time = value;
-                OnPropertyChanged("Time");
+                OnPropertyChanged();
             }
         }
 
@@ -102,7 +101,7 @@ namespace SunClouds.ViewModel
             set
             {
                 time2 = value;
-                OnPropertyChanged("Time2");
+                OnPropertyChanged();
             }
         }
 
@@ -112,7 +111,7 @@ namespace SunClouds.ViewModel
             set
             {
                 time3 = value;
-                OnPropertyChanged("Time3");
+                OnPropertyChanged();
             }
         }
 
@@ -122,7 +121,7 @@ namespace SunClouds.ViewModel
             set
             {
                 icon = value;
-                OnPropertyChanged("Icon");
+                OnPropertyChanged();
             }
         }
 
@@ -132,149 +131,143 @@ namespace SunClouds.ViewModel
             set
             {
                 icon2 = value;
-                OnPropertyChanged("Icon2");
+                OnPropertyChanged();
             }
         }
+
         public string Icon3
         {
             get { return icon3; }
             set
             {
                 icon3 = value;
-                OnPropertyChanged("Icon3");
+                OnPropertyChanged();
             }
         }
-
         public string City
         {
             get { return city; }
             set
             {
-               city = value;
-               OnPropertyChanged("City");
+                city = value;
+                OnPropertyChanged();
             }
         }
-
         public MainViewModel()
         {
             Task.Run(async () => await RunAsync()).GetAwaiter().GetResult();
         }
-
         public string GetWeatherImage(int index)
         {
-			switch (index) {
-				case 0:
-					Icon = "/Resources/Sunny.png";
+            switch (index)
+            {
+                case 0:
+                    Icon = "/Resources/Sunny.png";
                     return Icon;
-				case 1:
-					Icon = "/Resources/Sunny.png";
+                case 1:
+                    Icon = "/Resources/Sunny.png";
                     return Icon;
                 case 2:
-					Icon = "/Resources/Cloudy.png";
-					return Icon;
+                    Icon = "/Resources/Cloudy.png";
+                    return Icon;
                 case 3:
-					Icon = "/Resources/Cloudy.png";
+                    Icon = "/Resources/Cloudy.png";
                     return Icon;
                 case 45:
-					Icon = "/Resources/Blizzard.png";
+                    Icon = "/Resources/Blizzard.png";
                     return Icon;
                 case 48:
-					Icon = "/Resources/Downpour.png";
-					return Icon;
-				case 51:
-					Icon = "/Resources/Rainy.png";
-					return Icon;
-				case 53:
-					Icon = "/Resources/Rainy.png";  
+                    Icon = "/Resources/Downpour.png";
+                    return Icon;
+                case 51:
+                    Icon = "/Resources/Rainy.png";
+                    return Icon;
+                case 53:
+                    Icon = "/Resources/Rainy.png";
                     return Icon;
                 case 55:
-					Icon = "/Resources/Rainy.png";
+                    Icon = "/Resources/Rainy.png";
                     return Icon;
                 case 56:
-					Icon = "/Resources/Downpour.png";
+                    Icon = "/Resources/Downpour.png";
                     return Icon;
                 case 57:
-					Icon = "/Resources/Rainy.png";
+                    Icon = "/Resources/Rainy.png";
                     return Icon;
                 case 61:
-					Icon = "/Resources/Rainy.png";
+                    Icon = "/Resources/Rainy.png";
                     return Icon;
                 case 63:
-					Icon = "/Resources/Rainy.png";
+                    Icon = "/Resources/Rainy.png";
                     return Icon;
                 case 65:
-					Icon = "/Resources/Rainy.png";
+                    Icon = "/Resources/Rainy.png";
                     return Icon;
-				case 66:
-					Icon = "/Resources/Downpour.png";
+                case 66:
+                    Icon = "/Resources/Downpour.png";
                     return Icon;
-				case 67:
-					Icon = "/Resources/Downpour.png";
+                case 67:
+                    Icon = "/Resources/Downpour.png";
                     return Icon;
-				case 71:
-					Icon = "/Resources/Snow.png";
-                    return Icon;
-				case 73:
-					Icon = "/Resources/Snow.png";
-                    return Icon;
-				case 75:
-					Icon = "/Resources/Snow.png";
-                    return Icon;
-				case 77:
-					Icon = "/Resources/Snow.png";
-                    return Icon;
-				case 80:
-					Icon = "/Resources/Rainy.png";
-                    return Icon;
-				case 81:
-					Icon = "/Resources/Rainy.png";
-                    return Icon;
-				case 82:
-					Icon = "/Resources/Rainy.png";
-                    return Icon;
-				case 85:
-					Icon = "/Resources/Snow.png";
-                    return Icon;
-				case 86:
+                case 71:
                     Icon = "/Resources/Snow.png";
                     return Icon;
-				case 95:
-					Icon = "/Resources/Thunderstorm.png";
+                case 73:
+                    Icon = "/Resources/Snow.png";
                     return Icon;
-				case 96:
-					Icon = "/Resources/Thunderstorm.png";
-					return Icon;
-				case 99:
-					Icon = "/Resources/Thunderstorm.png";
-					return Icon;
+                case 75:
+                    Icon = "/Resources/Snow.png";
+                    return Icon;
+                case 77:
+                    Icon = "/Resources/Snow.png";
+                    return Icon;
+                case 80:
+                    Icon = "/Resources/Rainy.png";
+                    return Icon;
+                case 81:
+                    Icon = "/Resources/Rainy.png";
+                    return Icon;
+                case 82:
+                    Icon = "/Resources/Rainy.png";
+                    return Icon;
+                case 85:
+                    Icon = "/Resources/Snow.png";
+                    return Icon;
+                case 86:
+                    Icon = "/Resources/Snow.png";
+                    return Icon;
+                case 95:
+                    Icon = "/Resources/Thunderstorm.png";
+                    return Icon;
+                case 96:
+                    Icon = "/Resources/Thunderstorm.png";
+                    return Icon;
+                case 99:
+                    Icon = "/Resources/Thunderstorm.png";
+                    return Icon;
                 default:
-					Icon = "/Resources/Sunny.png";
-					return Icon;
-			}
-			
+                    Icon = "/Resources/Sunny.png";
+                    return Icon;
+            }
+
         }
 
         public async Task RunAsync()
         {
             OpenMeteoClient client = new OpenMeteoClient();
-            WeatherForecast weatherData = await client.QueryAsync("Moscow"); // Properties.Settings.Default.CurrentCity
-            string weatherCode = client.WeathercodeToString((int)weatherData.Daily.Weathercode[0]) + "." + " " + weatherData.Hourly.Temperature_2m[0].ToString();
-            string weatherCode2 = client.WeathercodeToString((int)weatherData.Daily.Weathercode[1]) + "." + " " + weatherData.Hourly.Temperature_2m[1].ToString();
-            string weatherCode3 = client.WeathercodeToString((int)weatherData.Daily.Weathercode[2]) + "." + " " + weatherData.Hourly.Temperature_2m[2].ToString();
+            WeatherForecast weatherData = await client.QueryAsync(Properties.Settings.Default.CurrentCity);
+            string weatherCode = client.WeathercodeToString((int)weatherData.Daily.Weathercode[0]) + "." + " " + weatherData.Hourly.Temperature_2m[0].ToString() + "°";
+            string weatherCode2 = client.WeathercodeToString((int)weatherData.Daily.Weathercode[1]) + "." + " " + weatherData.Hourly.Temperature_2m[1].ToString() + "°";
+            string weatherCode3 = client.WeathercodeToString((int)weatherData.Daily.Weathercode[2]) + "." + " " + weatherData.Hourly.Temperature_2m[2].ToString() + "°";
 
-            
-
-			string Apparent_temperature = "Ощущается как " + weatherData.Hourly.Apparent_temperature[0].ToString();
-            string Apparent_temperature2 = "Ощущается как " + weatherData.Hourly.Apparent_temperature[1].ToString();
-            string Apparent_temperature3 = "Ощущается как " + weatherData.Hourly.Apparent_temperature[2].ToString();
-
+            string Apparent_temperature = "Ощущается как " + weatherData.Hourly.Apparent_temperature[0].ToString() + "°";
+            string Apparent_temperature2 = "Ощущается как " + weatherData.Hourly.Apparent_temperature[1].ToString() + "°";
+            string Apparent_temperature3 = "Ощущается как " + weatherData.Hourly.Apparent_temperature[2].ToString() + "°";
 
             DateTime dt = DateTime.Parse(weatherData.CurrentWeather.Time);
             string time = dt.ToString("HH:mm");
             string time2 = dt.AddHours(1).ToString("HH:mm");
             string time3 = dt.AddHours(2).ToString("HH:mm");
-
-
 
             Icon = GetWeatherImage((int)weatherData.Daily.Weathercode[0]);
             Icon2 = GetWeatherImage((int)weatherData.Daily.Weathercode[1]);
@@ -288,16 +281,7 @@ namespace SunClouds.ViewModel
             Time = time;
             Time2 = time2;
             Time3 = time3;
-            City = "Moscow";  // Properties.Settings.Default.CurrentCity
-
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            City = Properties.Settings.Default.CurrentCity;
         }
     }
 }
