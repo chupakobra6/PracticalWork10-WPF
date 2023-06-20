@@ -11,7 +11,7 @@
 
         Style="{StaticResource WindowStyle}"
         WindowStartupLocation="CenterScreen"
-        Title="Главное окно с погодой"
+        Title="Погодный сервис SunClouds"
         MinHeight="274" MinWidth="438"
 		Height="850" Width="1500"
         >
@@ -27,7 +27,6 @@
         <CommandBinding Command="{x:Static SystemCommands.RestoreWindowCommand}" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed_Restore" />
     </Window.CommandBindings>
 
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="438"/>
@@ -42,13 +41,13 @@
                 <StackPanel x:Name="panel" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                    <Button Style="{StaticResource MinimizeButtonStyle}" Background="Transparent" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Minimize"
+                    <Button Style="{DynamicResource MinimizeButtonStyle}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Minimize"
                             Command="{x:Static SystemCommands.MinimizeWindowCommand}"/>
-                    <Button x:Name="RestoreButton" Visibility="Collapsed" Background="Transparent" Style="{StaticResource RestoreButtonStyle}" 
+                    <Button x:Name="RestoreButton" Visibility="Collapsed" Style="{DynamicResource RestoreButtonStyle}" 
                             Command="{x:Static SystemCommands.RestoreWindowCommand}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Restore"/>
-                    <Button x:Name="MaximizeButton" Visibility="Visible" Background="Transparent" Style="{StaticResource MaximizeButtonStyle}" 
+                    <Button x:Name="MaximizeButton" Visibility="Visible" Style="{DynamicResource MaximizeButtonStyle}" 
                             Command="{x:Static SystemCommands.MaximizeWindowCommand}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Maximize" />
-                    <Button Style="{StaticResource CloseButtonStyle}" Background="Transparent" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Close"
+                    <Button Style="{DynamicResource CloseButtonStyle}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Close"
                             Command="{x:Static SystemCommands.CloseWindowCommand}"/>
                 </StackPanel>
             </Grid>
@@ -73,11 +72,11 @@
                 FontSize="36"
                 FontWeight="SemiBold"
                 TextAlignment="Center"
-                Foreground="#3D95B9"/>
+                Foreground="{DynamicResource Secondary}"/>
             <Rectangle
                 Height="2"
                 Margin="20,78,20,13"
-                Fill="{DynamicResource Background}"
+                Fill="{DynamicResource Secondary}"
                 />
 
             <Image
@@ -90,13 +89,13 @@
                 </Image.Effect>
             </Image>
             <WrapPanel
-                Margin="194,28,32,12" Grid.Row="1"
+                Margin="194,28,32,-10" Grid.Row="1"
                 >
                 <TextBlock
                     Text="{Binding WeathercodeTemperature}"
                     TextAlignment="Right"
                     HorizontalAlignment="Right"
-                    Foreground="{DynamicResource Background}"
+                    Foreground="{DynamicResource Secondary2}"
                     FontWeight="SemiBold"
                     TextWrapping="WrapWithOverflow"
                     FontSize="26"
@@ -105,7 +104,7 @@
                     Text="{Binding ApparentTemperature}"
                     TextAlignment="Right"
                     HorizontalAlignment="Right"
-                    Foreground="{DynamicResource Background}"
+                    Foreground="{DynamicResource Secondary2}"
                     FontWeight="SemiBold"
                     FontSize="26"
                     TextWrapping="WrapWithOverflow"
@@ -115,7 +114,7 @@
             <TextBlock
                 Margin="11,94,343,0"
                 Text="{Binding Time}"
-                Foreground="{DynamicResource Background}"
+                Foreground="{DynamicResource WindowRootButtons}"
                 FontWeight="SemiBold"
                 FontSize="20"
                 TextAlignment="Center"
@@ -131,13 +130,13 @@
                 </Image.Effect>
             </Image>
             <WrapPanel
-                Margin="167,76,47,7" Grid.Row="2"
+                Margin="167,76,47,-5" Grid.Row="2"
                 >
                 <TextBlock
                     Text="{Binding WeathercodeTemperature}"
                     TextAlignment="Right"
                     HorizontalAlignment="Right"
-                    Foreground="{DynamicResource Background}"
+                    Foreground="{DynamicResource WindowRootButtons}"
                     FontSize="20"
                     TextWrapping="WrapWithOverflow"
                     />
@@ -145,7 +144,7 @@
                     Text="{Binding ApparentTemperature}"
                     TextAlignment="Right"
                     HorizontalAlignment="Right"
-                    Foreground="{DynamicResource Background}"
+                    Foreground="{DynamicResource WindowRootButtons}"
                     FontSize="20"
                     TextWrapping="WrapWithOverflow"
                     />
@@ -154,7 +153,7 @@
             <TextBlock
                 Margin="11,102,343,0"
                 Text="{Binding Time2}"
-                Foreground="{DynamicResource Background}"
+                Foreground="{DynamicResource WindowRootButtons}"
                 FontWeight="SemiBold"
                 FontSize="20"
                 TextAlignment="Center"
@@ -176,7 +175,7 @@
                     Text="{Binding WeathercodeTemperature2}"
                     TextAlignment="Right"
                     HorizontalAlignment="Right"
-                    Foreground="{DynamicResource Background}"
+                    Foreground="{DynamicResource WindowRootButtons}"
                     FontSize="20"
                     TextWrapping="WrapWithOverflow"
                     />
@@ -184,7 +183,7 @@
                     Text="{Binding ApparentTemperature2}"
                     TextAlignment="Right"
                     HorizontalAlignment="Right"
-                    Foreground="{DynamicResource Background}"
+                    Foreground="{DynamicResource WindowRootButtons}"
                     FontSize="20"
                     TextWrapping="WrapWithOverflow"
                     />
@@ -192,7 +191,7 @@
 
             <TextBlock
                 Margin="11,102,343,0"
-                Foreground="{DynamicResource Background}"
+                Foreground="{DynamicResource WindowRootButtons}"
                 Text="{Binding Time3}"
                 FontWeight="SemiBold"
                 FontSize="20"
@@ -209,13 +208,13 @@
                 </Image.Effect>
             </Image>
             <WrapPanel
-                Margin="167,78,47,80" Grid.Row="4"
+                Margin="167,78,47,65" Grid.Row="4"
                 >
                 <TextBlock
                     Text="{Binding WeathercodeTemperature3}"
                     TextAlignment="Right"
                     HorizontalAlignment="Right"
-                    Foreground="{DynamicResource Background}"
+                    Foreground="{DynamicResource WindowRootButtons}"
                     FontSize="20"
                     TextWrapping="WrapWithOverflow"
                     />
@@ -223,7 +222,7 @@
                     Text="{Binding ApparentTemperature3}"
                     TextAlignment="Right"
                     HorizontalAlignment="Right"
-                    Foreground="{DynamicResource Background}"
+                    Foreground="{DynamicResource WindowRootButtons}"
                     FontSize="20"
                     TextWrapping="WrapWithOverflow"
                     />

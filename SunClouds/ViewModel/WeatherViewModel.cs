@@ -17,6 +17,8 @@ namespace SunClouds.ViewModel
         private string _windSpeed;
         private string _windDirection;
         private string _reallyTemperature;
+        private bool NeedUpdate = true;
+        private DateTime dateTimeNow;
 
         private ObservableCollection<WithAlldayBlock> _allday;
         public ObservableCollection<WithAlldayBlock> Allday
@@ -144,14 +146,19 @@ namespace SunClouds.ViewModel
                     return Icon;
             }
         }
-        #endregion
+        public int GetFarengeit(int Cilius)
+        {
+            return Convert.ToInt32((Cilius * 9 / 5) + 32);
+        }
 
+        #endregion
+        #region Конструктор
         public WeatherViewModel()
         {
             Allday = new ObservableCollection<WithAlldayBlock>();
             Task.Run(async () => await RunAsync()).GetAwaiter().GetResult();
         }
-
+        #endregion
         #region Подвязка
         public string ReallyTemperature
         {

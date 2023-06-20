@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:SunClouds.View"
       mc:Ignorable="d" 
       
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="970"
       Title="Настройки"
 	  FontFamily="pack://application:,,,/Resources/#Jura"
       >
@@ -127,22 +127,22 @@
                 </Button>
             </Grid>
 
-            <Button BorderThickness="0" Grid.Column="2" Background="#903D95B9" Content="Добавить город" FontSize="18" Foreground="White"/>
+            <Button BorderThickness="0" Grid.Column="2" Background="{DynamicResource Background}" Opacity="0.8" Content="Добавить город" FontSize="18" Foreground="White"/>
 		</Grid>
 		
         <Label FontSize="28" FontWeight="SemiBold" Content="Исчисление градусов" HorizontalAlignment="Center" Margin="35,0,35,235" Foreground="White" VerticalAlignment="Bottom"/>
 		
         <Grid Grid.Column="1" HorizontalAlignment="Stretch">
-			<Border Background="{DynamicResource ButtonBackground}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,630,190" Padding="5,0,0,0">
+			<Border Background="{DynamicResource Background}" Opacity="0.8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,630,190" Padding="5,0,0,0">
                 <RadioButton GroupName="MeasureName" Content="Цельсий C°" FontSize="18" Foreground="White" Padding="25,5,25,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 			</Border>
 
-			<Border Background="{DynamicResource ButtonBackground}" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,330,190" Padding="5,0,0,0">
+            <Border Background="{DynamicResource Background}" Opacity="0.8" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,330,190" Padding="5,0,0,0">
                 <RadioButton GroupName="MeasureName"  Content="Фаренгейт F°" FontSize="18" Foreground="White" Padding="25,5,25,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 			</Border>
 		</Grid>
 
-		<Button FontSize="15" BorderThickness="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="30" Margin="35,0,35,35" Background="#903D95B9" Content="Сохранить" Foreground="White"/>
+		<Button FontSize="15" BorderThickness="0" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="30" Margin="35,0,35,35" Background="{DynamicResource Background}" Opacity="0.8" Content="Сохранить" Foreground="White"/>
 	
     </Grid>
 </Page>

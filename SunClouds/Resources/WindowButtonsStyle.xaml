@@ -5,14 +5,13 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Grid x:Name="LayoutRoot" Background="Transparent" Width="30" Height="30">
-                        <TextBlock x:Name="Color" Text="{TemplateBinding Content}" FontFamily="Segoe MDL2 Assets" FontWeight="ExtraBold" FontSize="10" 
-                                  Foreground="#87B6CA" HorizontalAlignment="Center" VerticalAlignment="Center"
+                        <TextBlock x:Name="Color" Text="{TemplateBinding Content}" Background="Transparent" Foreground="{DynamicResource WindowRootButtons}" FontFamily="Segoe MDL2 Assets" FontWeight="ExtraBold" FontSize="10"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"
                                    RenderOptions.ClearTypeHint="Auto" TextOptions.TextRenderingMode="Aliased"  TextOptions.TextFormattingMode="Display"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="LayoutRoot" Property="Background" Value="#3D95B9"/>
-                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter TargetName="LayoutRoot" Property="Background" Value="{DynamicResource ForFocus}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

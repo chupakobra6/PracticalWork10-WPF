@@ -11,7 +11,7 @@
 			
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource WindowStyle}"
-        Title="Стартовое окно"
+        Title="Погодный сервис SunClouds"
         MinHeight="158" MinWidth="206"
         Height="400" Width="660"
         >
@@ -31,13 +31,13 @@
         <Grid x:Name="DragGrid" MouseDown="Grid_MouseDown" Height="30" VerticalAlignment="Top" Panel.ZIndex="1">
             <Grid Name="Headbar" Height="30" Background="Transparent">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                    <Button Style="{StaticResource MinimizeButtonStyle}" Background="Transparent" Foreground="Black" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Minimize"
+                    <Button Style="{DynamicResource MinimizeButtonStyle}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Minimize"
                             Command="{x:Static SystemCommands.MinimizeWindowCommand}"/>
-                    <Button x:Name="RestoreButton" Visibility="Collapsed" Background="Transparent" Style="{StaticResource RestoreButtonStyle}" 
+                    <Button x:Name="RestoreButton" Visibility="Collapsed" Style="{DynamicResource RestoreButtonStyle}" 
                             Command="{x:Static SystemCommands.RestoreWindowCommand}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Restore"/>
-                    <Button x:Name="MaximizeButton" Visibility="Visible" Background="Transparent" Style="{StaticResource MaximizeButtonStyle}" 
+                    <Button x:Name="MaximizeButton" Visibility="Visible" Style="{DynamicResource MaximizeButtonStyle}" 
                             Command="{x:Static SystemCommands.MaximizeWindowCommand}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Maximize" />
-                    <Button Style="{StaticResource CloseButtonStyle}" Background="Transparent" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Close"
+                    <Button Style="{DynamicResource CloseButtonStyle}" WindowChrome.IsHitTestVisibleInChrome="True" ToolTip="Close"
                             Command="{x:Static SystemCommands.CloseWindowCommand}"/>
                 </StackPanel>
             </Grid>
@@ -71,7 +71,7 @@
                 <TextBlock
                     Visibility="{Binding ElementName=TextBox, Path=Text.IsEmpty, Converter={StaticResource MyBoolToVisibilityConverter}}" IsHitTestVisible="False"
                     Text="Ваш город"
-                    Foreground="Gray"
+                    Foreground="{DynamicResource Hint}"
                     Padding="0,3"
                     FontSize="15"
                     TextAlignment="Center"
@@ -84,6 +84,7 @@
                     x:Name="TextBox"
                     Style="{DynamicResource TextBoxStyle}"
                     Text="{Binding City, Mode=TwoWay}"
+                    Background="{DynamicResource Secondary}"
                     Margin="15,65,15,65"
                     />
 
@@ -110,7 +111,7 @@
             <Button
                 Name="Next"
                 Height="25"
-                Background="{DynamicResource ButtonBackground}"
+                Background="{DynamicResource Secondary}"
                 Content="Узнать погоду"
                 Foreground="White"
                 Padding="0,0,0,2"
