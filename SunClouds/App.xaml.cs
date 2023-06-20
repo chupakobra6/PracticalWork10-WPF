@@ -43,9 +43,6 @@ namespace SunClouds
         {
             int currentHour = DateTime.Now.Hour;
 
-            var WindowButtonsStyle = new ResourceDictionary { Source = new Uri("/Resources/WindowButtonsStyle.xaml", UriKind.RelativeOrAbsolute) };
-            var TextBoxStyle = new ResourceDictionary { Source = new Uri("/Resources/TextBoxStyle.xaml", UriKind.RelativeOrAbsolute) };
-
             var dictionary = new ResourceDictionary();
 
             if (currentHour >= 0 && currentHour <= 3)

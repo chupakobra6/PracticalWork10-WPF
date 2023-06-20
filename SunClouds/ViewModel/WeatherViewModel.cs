@@ -19,6 +19,7 @@ namespace SunClouds.ViewModel
         private string _reallyTemperature;
         private bool NeedUpdate = true;
         private DateTime dateTimeNow;
+        private bool Cilisus;
 
         private ObservableCollection<WithAlldayBlock> _allday;
         public ObservableCollection<WithAlldayBlock> Allday
@@ -155,6 +156,7 @@ namespace SunClouds.ViewModel
         #region Конструктор
         public WeatherViewModel()
         {
+            Cilisus = SunClouds.Properties.Settings.Default.degreesCelsius;
             Allday = new ObservableCollection<WithAlldayBlock>();
             Task.Run(async () => await RunAsync()).GetAwaiter().GetResult();
         }
@@ -211,29 +213,66 @@ namespace SunClouds.ViewModel
         {
             OpenMeteoClient client = new OpenMeteoClient();
             WeatherForecast weatherData = await client.QueryAsync(SunClouds.Properties.Settings.Default.CurrentCity);
+            
 
-            ReallyTemperature = GetTemperature(Convert.ToInt32(weatherData.Hourly.Temperature_2m[0]));
-            FeelsLike = GetTemperature(Convert.ToInt32(weatherData.Hourly.Apparent_temperature[0]));
-            MinTemperature = GetTemperature(Convert.ToInt32(weatherData.Daily.Apparent_temperature_min[0]));
-            MaxTemperature = GetTemperature(Convert.ToInt32(weatherData.Daily.Apparent_temperature_max[0]));
+
+       
+
+
+
             Pressure = GetPressure(Convert.ToInt32(weatherData.Hourly.Surface_pressure[0] * 0.750064));
             Humidity = GetHumidity(Convert.ToInt32(weatherData.Hourly.Relativehumidity_2m[0]));
             WindSpeed = GetWindSpeed(Convert.ToInt32(weatherData.CurrentWeather.Windspeed));
             WindDirection = GetWindDirection(Convert.ToInt32(weatherData.CurrentWeather.WindDirection));
 
             DateTime dt = DateTime.Parse(weatherData.CurrentWeather.Time);
+            if (dt.Hour!= dateTimeNow.Hour) {
+                NeedUpdate = true;
+            }
 
-            if (Allday.Count < 11)
+            if (Cilisus)
             {
-                for (int i = 0; i < 11; i++)
+                ReallyTemperature = GetTemperature(Convert.ToInt32(weatherData.Hourly.Temperature_2m[0]));
+                FeelsLike = GetTemperature(Convert.ToInt32(weatherData.Hourly.Apparent_temperature[0]));
+                MinTemperature = GetTemperature(Convert.ToInt32(weatherData.Daily.Apparent_temperature_min[0]));
+                MaxTemperature = GetTemperature(Convert.ToInt32(weatherData.Daily.Apparent_temperature_max[0]));
+                if (Allday.Count < 11 && NeedUpdate)
                 {
-                    Allday.Add(new WithAlldayBlock(dt.AddHours(i).ToString("HH:mm"),
-                        GetTemperature(Convert.ToInt32(weatherData.Hourly.Temperature_2m[i])),
-                        GetTemperature(Convert.ToInt32(weatherData.Hourly.Apparent_temperature[i])),
-                        GetHumidity(Convert.ToInt32(weatherData.Hourly.Relativehumidity_2m[i])),
-                        GetImg((int)weatherData.Hourly.Weathercode[i])));
+                    for (int i = 0; i < 11; i++)
+                    {
+                        Allday.Add(new WithAlldayBlock(dt.AddHours(i).ToString("HH:mm"),
+                            GetTemperature(Convert.ToInt32(weatherData.Hourly.Temperature_2m[i])),
+                            GetTemperature(Convert.ToInt32(weatherData.Hourly.Apparent_temperature[i])),
+                            GetHumidity(Convert.ToInt32(weatherData.Hourly.Relativehumidity_2m[i])),
+                            GetImg((int)weatherData.Hourly.Weathercode[i])));
+                    }
+                    NeedUpdate = false;
+                    dateTimeNow = dt;
                 }
             }
+            else
+            {
+                ReallyTemperature = GetTemperature(GetFarengeit(Convert.ToInt32(weatherData.Hourly.Temperature_2m[0])));
+                FeelsLike = GetTemperature(GetFarengeit(Convert.ToInt32(weatherData.Hourly.Apparent_temperature[0])));
+                MinTemperature = GetTemperature(GetFarengeit(Convert.ToInt32(weatherData.Daily.Apparent_temperature_min[0])));
+                MaxTemperature = GetTemperature(GetFarengeit(Convert.ToInt32(weatherData.Daily.Apparent_temperature_max[0])));
+                if (Allday.Count < 11 && NeedUpdate)
+                {
+                    for (int i = 0; i < 11; i++)
+                    {
+                        Allday.Add(new WithAlldayBlock(dt.AddHours(i).ToString("HH:mm"),
+                            GetTemperature(GetFarengeit(Convert.ToInt32(weatherData.Hourly.Temperature_2m[i]))),
+                            GetTemperature(GetFarengeit(Convert.ToInt32(weatherData.Hourly.Apparent_temperature[i]))),
+                            GetHumidity(GetFarengeit(Convert.ToInt32(weatherData.Hourly.Relativehumidity_2m[i]))),
+                            GetImg((int)weatherData.Hourly.Weathercode[i])));
+                    }
+                    NeedUpdate = false;
+                    dateTimeNow = dt;
+                }
+            }
+            
+
+            
         }
     }
 }
