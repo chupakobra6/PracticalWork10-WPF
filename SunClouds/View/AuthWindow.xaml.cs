@@ -78,5 +78,5 @@ namespace SunClouds.View
 			new MainWindow().Show();
 			Close();
 		}
-	}
+    }
 }
